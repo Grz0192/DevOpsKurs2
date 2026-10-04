@@ -1,0 +1,17 @@
+#!/bin/bash
+sciezka="${1:?podaj ścieżkę}"
+katalog="${sciezka%/*}"
+nazwa="${sciezka##*/}"
+bez="${nazwa%.*}"
+reszta="${bez#*_}"
+data="${reszta#*_}"
+po_roku="${data#*-}"
+
+printf 'katalog: %s\n' "$katalog"
+printf 'nazwa: %s\n' "$nazwa"
+printf 'bez rozszerzenia: %s\n' "$bez"
+printf 'usluga: %s\n' "${bez%%_*}"
+printf 'srodowisko: %s\n' "${reszta%%_*}"
+printf 'rok: %s\n' "${data%%-*}"
+printf 'miesiac: %s\n' "${po_roku%%-*}"
+printf 'wielkie: %s\n' "${nazwa^^}"
