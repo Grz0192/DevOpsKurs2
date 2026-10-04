@@ -1,0 +1,9 @@
+10.0.3.88 - - [12/Mar/2026:08:19:07 +0100] "GET /katalog/kurtki HTTP/1.1" 200 7734
+10.0.3.51 - - [12/Mar/2026:08:20:12 +0100] "GET /api/koszyk HTTP/1.1" 200 512
+192.168.10.5 - - [12/Mar/2026:08:20:48 +0100] "POST /api/platnosc/potwierdz HTTP/1.1" 500 122
+10.0.3.27 - - [12/Mar/2026:08:21:15 +0100] "GET /brak-strony HTTP/1.1" 404 196
+10.0.3.14 - - [12/Mar/2026:08:21:50 +0100] "GET /katalog/buty HTTP/1.1" 200 9021
+10.0.3.88 - - [12/Mar/2026:08:22:31 +0100] "POST /api/platnosc/potwierdz HTTP/1.1" 500 122
+203.0.113.9 - - [12/Mar/2026:08:24:05 +0100] "POST /admin/login HTTP/1.1" 401 173
+172.16.4.9 - - [12/Mar/2026:08:27:02 +0100] "GET /api/koszyk HTTP/1.1" 200 501
+172.16.4.9 - - [12/Mar/2026:08:27:41 +0100] "POST /api/platnosc/potwierdz HTTP/1.1" 500 122
