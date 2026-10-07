@@ -1,0 +1,31 @@
+Ćwiczenie 8. Polowanie na wąskie gardło metodą USE
+
+Cel: pokazać na danych, że przy backlog=32 i worker_connections 64
+wyczerpuje się kolejka przyjęć jądra, a po cofnięciu limitu problem znika.
+
+Narzędzia: test_server.sh (ab, konkurencja 200) oraz k6 ~/use.js
+(200 VU, 20 s, noConnectionReuse). Licznik: nstat -az, ListenDrops.
+
+1. Wariant normalny
+worker_connections 768, listen 80 bez backlog
+CSV: wyniki-normal.csv
+RPS 7355, p50 26 ms, p95 32 ms, p99 36 ms, nieudane 0
+nstat przed i po: 0, przyrost ListenDrops 0
+
+2. Wariant zdławiony
+worker_connections 64, listen 80 backlog=32 na gnieździe portu 80
+ab (wyniki-zdławiony.csv): RPS 6249, p95 36 ms, nieudane 0, nstat nadal 0
+ab nie zdążył przelać kolejki.
+k6: nstat przed 0, po 268, przyrost ListenDrops 268
+RPS 11892, http_req_failed 0,23% (588 z 248951)
+objaw klienta: EOF, connection reset by peer
+
+3. Po naprawie
+cofnięte backlog i worker_connections 768
+k6: nstat przed 268, po 268, przyrost 0
+RPS 13135, http_req_failed 0,00% (0 z 262787)
+
+Wniosek: wyczerpała się kolejka przyjęć (ListenDrops), nie procesor.
+USE: wykorzystanie CPU nie było objawem, nasycenie to kolejka backlog,
+błąd to odrzucone połączenia. Po cofnięciu limitu przyrost licznika jest zerowy,
+a odsetek błędów spada do zera.

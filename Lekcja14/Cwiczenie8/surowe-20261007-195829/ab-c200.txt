@@ -1,0 +1,53 @@
+This is ApacheBench, Version 2.3 <$Revision: 1923142 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking twoja.local (be patient)
+Completed 200 requests
+Completed 400 requests
+Completed 600 requests
+Completed 800 requests
+Completed 1000 requests
+Completed 1200 requests
+Completed 1400 requests
+Completed 1600 requests
+Completed 1800 requests
+Completed 2000 requests
+Finished 2000 requests
+
+
+Server Software:        nginx/1.28.3
+Server Hostname:        twoja.local
+Server Port:            80
+
+Document Path:          /
+Document Length:        186 bytes
+
+Concurrency Level:      200
+Time taken for tests:   0.320 seconds
+Complete requests:      2000
+Failed requests:        0
+Total transferred:      854000 bytes
+HTML transferred:       372000 bytes
+Requests per second:    6249.77 [#/sec] (mean)
+Time per request:       32.001 [ms] (mean)
+Time per request:       0.160 [ms] (mean, across all concurrent requests)
+Transfer rate:          2606.10 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   14   4.9     14      26
+Processing:     1   15   5.1     15      28
+Waiting:        1    8   5.1      6      28
+Total:         21   30   3.1     29      38
+
+Percentage of the requests served within a certain time (ms)
+  50%     29
+  66%     30
+  75%     32
+  80%     33
+  90%     35
+  95%     36
+  98%     36
+  99%     37
+ 100%     38 (longest request)
