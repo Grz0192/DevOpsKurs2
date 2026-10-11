@@ -1,0 +1,24 @@
+=== bez certyfikatu ===
+400
+=== klient1 whoami ===
+{"status":"ok","klient":"CN=klient1,O=Firma Wewnetrzna,C=PL","weryfikacja":"SUCCESS"}
+
+HTTP 200
+=== klient1 admin ===
+{"status":"admin","klient":"CN=klient1,O=Firma Wewnetrzna,C=PL"}
+
+HTTP 200
+=== klient2 whoami ===
+{"status":"ok","klient":"CN=klient2,O=Firma Wewnetrzna,C=PL","weryfikacja":"SUCCESS"}
+
+HTTP 200
+=== klient2 admin ===
+<html>
+<head><title>403 Forbidden</title></head>
+<body>
+<center><h1>403 Forbidden</h1></center>
+<hr><center>nginx/1.28.3 (Ubuntu)</center>
+</body>
+</html>
+
+HTTP 403
